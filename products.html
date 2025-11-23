@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Diva Shades | Products</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+<div class="container">
+<a class="navbar-brand d-flex align-items-center" href="index.html">
+<span class="brand-icon">💋</span>
+<span class="brand-text ms-2">Diva Shades</span>
+</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuP">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="menuP">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link active" href="products.html">Products</a></li>
+<li class="nav-item"><a class="nav-link" href="cart.html">Cart <span id="cartCountP" class="badge bg-rose ms-1">0</span></a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- MAIN -->
+<main class="container py-5">
+<div class="row mb-4">
+<div class="col-md-4">
+<h2>All Products</h2>
+<p class="text-muted">Filter by category or search by name.</p>
+</div>
+<div class="col-md-8 d-flex gap-2 justify-content-md-end">
+<div class="input-group w-50">
+<input id="searchBox" type="text" class="form-control" placeholder="Search products...">
+<button id="searchBtn" class="btn btn-outline-secondary">Search</button>
+</div>
+
+<select id="filterCat" class="form-select w-auto">
+<option value="all">All Categories</option>
+<option value="Lips">Lips</option>
+<option value="Face">Face</option>
+<option value="Eyes">Eyes</option>
+<option value="Nails">Nails</option>
+<option value="Skincare">Skincare</option>
+<option value="Hair">Hair</option>
+<option value="Tools">Tools</option>
+</select>
+</div>
+</div>
+
+<div id="productsGrid" class="row g-4"></div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// ---------------- PRODUCT DATABASE ----------------
+const PRODUCTS = [
+{ id:'lip_1', category:'Lips', title:'Velvet Matte Lipstick', price:499, img:'images/lipstick.jpg' },
+{ id:'lip_2', category:'Lips', title:'Liquid Matte Lip', price:549, img:'images/liquid_lip.jpg' },
+{ id:'lip_3', category:'Lips', title:'Glossy Lip Shine', price:349, img:'images/lip_gloss.jpg' },
+{ id:'lip_4', category:'Lips', title:'Tinted Lip Balm', price:299, img:'images/lip_balm.jpg' },
+
+{ id:'face_1', category:'Face', title:'Flawless Liquid Foundation', price:899, img:'images/foundation.jpg' },
+{ id:'face_2', category:'Face', title:'Compact Powder', price:399, img:'images/compact.jpg' },
+{ id:'face_3', category:'Face', title:'HD Primer', price:599, img:'images/primer.jpg' },
+{ id:'face_4', category:'Face', title:'Liquid Concealer', price:349, img:'images/concealer.jpg' },
+{ id:'face_5', category:'Face', title:'Highlighter Stick', price:449, img:'images/highlighter.jpg' },
+
+{ id:'eye_1', category:'Eyes', title:'Smokey Eyeshadow Palette', price:999, img:'images/eyeshadow.jpg' },
+{ id:'eye_2', category:'Eyes', title:'Waterproof Mascara', price:399, img:'images/mascara.jpg' },
+{ id:'eye_3', category:'Eyes', title:'Eyeliner Gel', price:299, img:'images/eyeliner.jpg' },
+{ id:'eye_4', category:'Eyes', title:'Brow Pencil', price:249, img:'images/brow.jpg' },
+
+{ id:'nail_1', category:'Nails', title:'Ultra Shine Nail Paint', price:299, img:'images/nailpaint.jpg' },
+{ id:'nail_2', category:'Nails', title:'Nail Care Oil', price:199, img:'images/cuticle_oil.jpg' },
+
+{ id:'skin_1', category:'Skincare', title:'Hyaluronic Serum', price:799, img:'images/serum.jpg' },
+{ id:'skin_2', category:'Skincare', title:'SPF Moisturizer', price:499, img:'images/sunscreen.jpg' },
+{ id:'skin_3', category:'Skincare', title:'Sheet Mask (Pack)', price:349, img:'images/sheetmask.jpg' },
+
+{ id:'hair_1', category:'Hair', title:'Nourishing Hair Oil', price:599, img:'images/hairoil.jpg' },
+{ id:'hair_2', category:'Hair', title:'Repair Hair Mask', price:699, img:'images/hairmask.jpg' },
+
+{ id:'tool_1', category:'Tools', title:'Makeup Brush Set', price:899, img:'images/brushes.jpg' },
+{ id:'tool_2', category:'Tools', title:'Beauty Sponge', price:249, img:'images/sponger.jpg' }
+];
+
+// ---------------- RENDER PRODUCTS ----------------
+const grid = document.getElementById("productsGrid");
+function render(products) {
+grid.innerHTML = "";
+products.forEach(p => {
+const div = document.createElement("div");
+div.className = "col-6 col-md-4 col-lg-3";
+div.innerHTML = `
+<div class="card h-100 shadow-sm product-card">
+<img src="${p.img}" class="card-img-top" alt="${p.title}">
+<div class="card-body d-flex flex-column">
+<h6 class="card-title">${p.title}</h6>
+<small class="text-muted">${p.category}</small>
+<p class="card-price mt-2 mb-3">₹ ${p.price}</p>
+
+<div class="mt-auto d-flex gap-2">
+<button class="btn btn-outline-light btn-sm view-btn" data-id="${p.id}">View</button>
+<button class="btn btn-rose btn-sm add-cart" data-id="${p.id}">Add to Cart</button>
+</div>
+</div>
+</div>`;
+grid.appendChild(div);
+});
+}
+render(PRODUCTS);
+
+// ---------------- SEARCH & FILTER ----------------
+const filter = document.getElementById("filterCat");
+const searchBox = document.getElementById("searchBox");
+document.getElementById("searchBtn").addEventListener("click", applyFilters);
+searchBox.addEventListener("keypress", e => { if(e.key === "Enter") applyFilters(); });
+
+function applyFilters() {
+const cat = filter.value;
+const q = searchBox.value.trim().toLowerCase();
+
+let res = PRODUCTS.filter(p => cat === "all" || p.category === cat);
+if(q) res = res.filter(p =>
+p.title.toLowerCase().includes(q) ||
+p.category.toLowerCase().includes(q)
+);
+render(res);
+}
+
+// ---------------- CART FUNCTIONS ----------------
+function getCart(){ return JSON.parse(localStorage.getItem("diva_cart") || "[]"); }
+function saveCart(c){ localStorage.setItem("diva_cart", JSON.stringify(c)); updateCartCount(); }
+function updateCartCount(){
+const c = getCart();
+document.getElementById("cartCountP").textContent = c.reduce((s, i) => s + i.qty, 0);
+}
+updateCartCount();
+
+document.addEventListener("click", e => {
+if(e.target.classList.contains("add-cart")){
+const id = e.target.dataset.id;
+const prod = PRODUCTS.find(p => p.id === id);
+let cart = getCart();
+const f = cart.find(x => x.id === id);
+if(f) f.qty++; else cart.push({...prod, qty:1});
+saveCart(cart);
+alert("Added to cart");
+}
+
+if(e.target.classList.contains("view-btn")){
+const id = e.target.dataset.id;
+const p = PRODUCTS.find(x => x.id === id);
+alert(`${p.title}\nPrice: ₹${p.price}\nCategory: ${p.category}`);
+}
+});
+</script>
+</body>
+</html>

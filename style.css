@@ -1,0 +1,184 @@
+:root{
+--rose: #b76e79; /* rose gold */
+--rose-dark: #9b5961;
+--bg-dark: #0b0b0d;
+--bg-alt: #121214;
+--muted: #bdb5b5;
+}
+*{box-sizing:border-box}
+body{font-family: 'Poppins', sans-serif; background:var(--bg-dark); color:#eee; margin:0}
+.navbar-brand .brand-text{font-weight:700; color:var(--rose)}
+.brand-icon{font-size:1.3rem}
+.hero{min-height:60vh; background:linear-gradient(0deg, rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('images/banner.jpg') center/cover no-repeat; display:flex; align-items:center}
+.hero h1{color:#fff}
+.btn-rose{background:var(--rose); border-color:var(--rose); color:#fff}
+.btn-rose:hover{background:var(--rose-dark)}
+.bg-dark-alt{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent)}
+.section-title{color:#f8f0f2}
+.cat-card{background:transparent; border:1px solid rgba(255,255,255,0.04); color:#fff}
+.cat-img{width:64px; height:64px; object-fit:contain; filter:grayscale(10%)}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.18)); border:none}
+.card .card-img-top{height:180px; object-fit:cover}
+.product-card .price{font-weight:700}
+footer{background:transparent}
+.badge.bg-rose{background:var(--rose)}
+.input-group .form-control, .form-select{background:#0f0f10; color:#eee; border:1px solid rgba(255,255,255,0.05)}
+.table td, .table th{border-top:1px solid rgba(255,255,255,0.03)}
+.alert{background:#0f0f11; color:#ddd}
+
+
+/* responsive tweaks */
+@media (max-width:576px){ .hero{padding:3rem 1rem} }
+
+
+/* small helper */
+.text-muted{color:var(--muted)!important}
+
+
+
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+/* NAVBAR */
+.navbar {
+  background: #000;
+  border-bottom: 1px solid rgba(255, 182, 193, 0.3);
+}
+.navbar-brand {
+  font-size: 26px;
+  font-weight: 600;
+  color: #ff99cc !important;
+}
+
+/* Buttons */
+.btn-rose {
+  background: #ff1493;
+  color: #fff;
+  border-radius: 30px;
+  padding: 10px 22px;
+  border: none;
+}
+.btn-rose:hover {
+  background: #ff66b3;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url("images/banner1.avif") center/cover no-repeat fixed;
+  display: flex;
+  align-items: center;
+}
+.hero h1 {
+  font-size: 60px;
+}
+.hero h1 {
+  color: #5A2E30; /* deeper rose */
+  font-weight: 700;
+}
+.hero p {
+  color: #5A2E30;
+}
+.hero .btn {
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+
+/* Cards */
+.card-title {
+    color: #5A2E30; /* Rose Brown for title */
+    font-weight: 600;
+}
+
+.card-price {
+    color: #C2185B; /* Soft pinkish highlight for price */
+    font-weight: 700;
+}
+
+.card {
+  background: #111;
+  border: 1px solid rgba(255, 182, 193, 0.4);
+  transition: 0.3s;
+  border-radius: 12px;
+}
+
+.card-price {
+    color: #ff66b3 !important; /* soft luxury pink */
+    font-weight: 700;
+    font-size: 1.15rem;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+.card img {
+  height: 240px;
+  object-fit: cover;
+}
+
+.card:hover .card-title,
+.card:hover .card-price {
+    transform: scale(1.02);
+    transition: 0.3s;
+    color: #E91E63; /* popping pink on hover */
+}
+
+/* Footer */
+footer {
+  background: #111;
+  border-top: 1px solid rgba(255, 182, 193, 0.3);
+}
+footer a {
+  color: #ff99cc;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #fff;
+}
+
+/* CONTACT FORM */
+.contact-section input,
+.contact-section textarea {
+  background: #111;
+  border: 1px solid #ff99cc;
+  color: #fff;
+  border-radius: 8px;
+}
+
+.contact-section button {
+  background: #ff1493;
+  color: #fff;
+  border-radius: 25px;
+}
+
+/* CART */
+.cart-item {
+  display: flex;
+  align-items: center;
+  background: #111;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+.cart-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 15px;
+}
+.total-box {
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #ff99cc;
+  font-size: 22px;
+  font-weight: 600;
+}
