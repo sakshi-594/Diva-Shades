@@ -9,7 +9,7 @@
 body{font-family: 'Poppins', sans-serif; background:var(--bg-dark); color:#eee; margin:0}
 .navbar-brand .brand-text{font-weight:700; color:var(--rose)}
 .brand-icon{font-size:1.3rem}
-.hero{min-height:60vh; background:linear-gradient(0deg, rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('banner1.avif') center/cover no-repeat; display:flex; align-items:center}
+.hero{min-height:60vh; background:linear-gradient(0deg, rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('banner.jpg') center/cover no-repeat; display:flex; align-items:center}
 .hero h1{color:#fff}
 .btn-rose{background:var(--rose); border-color:var(--rose); color:#fff}
 .btn-rose:hover{background:var(--rose-dark)}
@@ -182,6 +182,7 @@ footer a:hover {
   font-size: 22px;
   font-weight: 600;
 }
+
 
 
 
