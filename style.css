@@ -11,8 +11,7 @@ body{font-family: 'Poppins', sans-serif; background:var(--bg-dark); color:#eee; 
 .brand-icon{font-size:1.3rem}
 .hero{
   height:100vh;
-  background:
-    url("images/banner.jpg") center/cover no-repeat;
+   background: url("./images/banner.jpg") center/cover no-repeat;
   background-attachment: fixed;
   display:flex;
   align-items:center;
@@ -181,4 +180,5 @@ footer a:hover {
   font-size: 22px;
   font-weight: 600;
 }
+
 
